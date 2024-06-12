@@ -1,0 +1,13 @@
+syntax = "proto2";
+package order.event.individual;
+
+import "order/id/Order.proto";
+
+option java_multiple_files = true;
+option java_package = "eu.cymo.kafkaSerializationEvolution.order.event.sd";
+
+
+message OrderConfirmed {
+  required uint64 timestamp = 1;
+  required order.id.Order order = 2;
+}

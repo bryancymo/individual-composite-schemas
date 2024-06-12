@@ -1,0 +1,7 @@
+@namespace("eu.cymo.kafkaSerializationEvolution.id")
+protocol Id {
+
+	record Order {
+		string id;
+	}
+}

@@ -1,0 +1,20 @@
+@namespace("eu.cymo.kafkaSerializationEvolution.event")
+protocol Event {
+
+	record Unknown {}
+
+	record OrderConfirmed {
+	}
+
+	record OrderDelivered {
+		string deliveryPartner;
+	}
+
+	record OrderShipped {
+		string deliveryPartner;
+	}
+
+	record OrderPaid {
+		string broker;
+	}
+}

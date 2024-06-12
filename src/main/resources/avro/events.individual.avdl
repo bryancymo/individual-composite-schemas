@@ -1,0 +1,27 @@
+@namespace("eu.cymo.kafkaSerializationEvolution.event.individual")
+protocol Event {
+
+	import idl "ids.avdl";
+
+	record OrderConfirmed{
+		long timestamp;
+		eu.cymo.kafkaSerializationEvolution.id.Order order;
+	}
+
+	record OrderDelivered {
+		long timestamp;
+		eu.cymo.kafkaSerializationEvolution.id.Order order;
+		string deliveryPartner;
+	}
+
+	record OrderShipped {
+		long timestamp;
+		eu.cymo.kafkaSerializationEvolution.id.Order order;
+		string deliveryPartner;
+	}
+
+	record OrderPaid {
+		long timestamp;
+		eu.cymo.kafkaSerializationEvolution.id.Order order;
+	}
+}

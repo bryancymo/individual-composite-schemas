@@ -1,0 +1,25 @@
+syntax = "proto2";
+package order;
+
+import "order/id/Order.proto";
+import "order/event/OrderConfirmed.proto";
+import "order/event/OrderShipped.proto";
+import "order/event/OrderDelivered.proto";
+import "order/event/OrderPaid.proto";
+
+
+option java_multiple_files = true;
+option java_package = "eu.cymo.kafkaSerializationEvolution.order.composite";
+
+
+message OrderEvent {
+  required uint64 timestamp = 1;
+  required order.id.Order order = 2;
+
+  oneof event {
+    order.event.OrderConfirmed confirmed = 10;
+    order.event.OrderShipped shipped = 11;
+    order.event.OrderDelivered delivered = 12;
+    order.event.OrderPaid paid = 13;
+  }
+}

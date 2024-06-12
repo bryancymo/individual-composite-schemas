@@ -1,0 +1,19 @@
+@namespace("eu.cymo.kafkaSerializationEvolution.composite")
+protocol EventWrapper {
+
+ 	import idl "ids.avdl";
+ 	import idl "events.avdl";
+	record Unknown {}
+
+	record OrderEvent {
+		long timestamp;
+		eu.cymo.kafkaSerializationEvolution.id.Order order;
+		union {
+			Unknown,
+			eu.cymo.kafkaSerializationEvolution.event.OrderConfirmed,
+			eu.cymo.kafkaSerializationEvolution.event.OrderDelivered,
+			eu.cymo.kafkaSerializationEvolution.event.OrderShipped,
+			eu.cymo.kafkaSerializationEvolution.event.OrderPaid
+		} event;
+	}
+}
